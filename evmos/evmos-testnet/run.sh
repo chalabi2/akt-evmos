@@ -161,18 +161,18 @@ fi
 # Download genesis
 if [ "$DOWNLOAD_GENESIS" == "1" ]; then
   echo "Downloading genesis $GENESIS_URL"
-  wget $GENESIS_URL  
-  unzip genesis.zip
-  rm .evmosd/config/genesis.json
-  mv genesis.json .evmosd/config/
+  curl -sfL $GENESIS_URL > genesis.json
+  file genesis.json | grep -q 'gzip compressed data' && mv genesis.json genesis.json.gz && gzip -d genesis.json.gz
+  file genesis.json | grep -q 'tar archive' && mv genesis.json genesis.json.tar && tar -xf genesis.json.tar && rm genesis.json.tar
+  file genesis.json | grep -q 'Zip archive data' && mv genesis.json genesis.json.zip && unzip -o genesis.json.zip
 
   # Ensure we are using the block that contains 'genesis_time' on the first level
   # Some chains might be using an encapsulated response (e.g. a jsonrpc embodied response)
-  # cat genesis.json | jq '.. | objects | . as $parent | with_entries(select(.key  == "genesis_time")) | select(. != {})| $parent ' > genesis_parsed.json
-  # cp genesis_parsed.json genesis.json
+  cat genesis.json | jq '.. | objects | . as $parent | with_entries(select(.key  == "genesis_time")) | select(. != {})| $parent ' > genesis_parsed.json
+  cp genesis_parsed.json genesis.json
 
-  # mkdir -p $CONFIG_PATH
-  # cp genesis.json $CONFIG_PATH/genesis.json
+  mkdir -p $CONFIG_PATH
+  cp genesis.json $CONFIG_PATH/genesis.json
 fi
 
 # Validate genesis
