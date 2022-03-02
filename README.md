@@ -62,7 +62,7 @@ deployment:
       profile: node
       count: 1
 ```
-*Step 3) click through the deployment transactions
+* Step 3) click through the deployment transactions
 
 ### Interaction
 Connecting to the RPC or utilizing the Akash deployed node as a peer is as easy as adding the node id (printed in the logs) and Akash URI to a typical node config.toml file. Further configuration can be found at the [Omni-Bus Repo](https://github.com/ovrclk/cosmos-omnibus)
