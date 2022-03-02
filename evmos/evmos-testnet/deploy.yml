@@ -3,7 +3,7 @@ version: "2.0"
 
 services:
   node:
-    image: chandrastation/evmosakt:v1.3.0-testnet
+    image: chandrastation/evmosakt:v1.4.0-testnet
     env:
       - MONIKER=akt_evmos
       - CHAIN_ID=evmos_9000-3
