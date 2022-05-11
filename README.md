@@ -27,7 +27,8 @@ services:
       - VALIDATE_GENESIS=0
       - P2P_PERSISTENT_PEERS=e3e11fca4ecf4035a751f3fea90e3a821e274487@bd-evmos-mainnet-seed-node-01.bdnodes.net:26656,fc86e7e75c5d2e4699535e1b1bec98ae55b16826@bd-evmos-mainnet-seed-node-02.bdnodes.net:26656,40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72@seed.evmos.jerrychong.com:26656,eaa3dae2275faf9f599690c336d0e41e59fa6ae0@65.108.6.69:26656
       - GENESIS_URL=https://github.com/tharsis/mainnet/raw/main/evmos_9001-2/genesis.json.zip
-      - SNAPSHOT_URL=https://snapshots2.polkachu.com/snapshots/evmos/evmos_225990.tar.lz4
+      - SNAPSHOT_URL=https://snapshots.stakingcare.com/evmos/mainnet/evmos_2022-05-10.tar
+      - SNAPSHOT_FORMAT=tar
     expose:
       - port: 26657
         as: 80
@@ -44,9 +45,9 @@ profiles:
         cpu:
           units: 8
         memory:
-          size: 32Gi
+          size: 18Gi
         storage:
-          size: 200Gi
+          size: 100Gi
   placement:
     dcloud:
       attributes:
