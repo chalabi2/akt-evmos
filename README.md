@@ -10,7 +10,7 @@ Omnibus allows us to setup simple environment variables in the deploy file in or
 * Step 1) Download [Akashlytics](https://akashlytics.com/deploy)
 * Step 2) copy and paste the deploy file below for a simple RPC node configuration
 
-### Deploy FIle
+### Deploy File
 
 Located in the main repo is are multiple deployment files to use on Akashlytics. Each deployment file is named after a simple node configuration. Here is the RPC config
 
