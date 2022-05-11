@@ -1,6 +1,6 @@
 ARG BUILD_IMAGE=default
 ARG BUILD_METHOD=source
-ARG GOLANG_VERSION=1.17-buster
+ARG GOLANG_VERSION=1.18-buster
 ARG BASE_IMAGE=golang:${GOLANG_VERSION}
 
 #
@@ -21,7 +21,7 @@ RUN apt-get update && \
 #
 FROM build_base AS build_source
 
-ARG VERSION=v1.1.0
+ARG VERSION=v3.0.2
 ARG REPOSITORY=https://github.com/tharsis/evmos
 ARG BUILD_CMD="make install"
 
@@ -61,7 +61,6 @@ ARG PROJECT=evmos
 ARG PROJECT_BIN=evmosd
 
 COPY --from=build /bin/$PROJECT_BIN /bin/$PROJECT_BIN
-COPY --from=build /data/deps/ /
 
 #
 # Optional image to install from binary
@@ -90,7 +89,7 @@ ARG PROJECT_DIR=.evmosd
 ARG CONFIG_DIR=config
 ARG START_CMD="$PROJECT_BIN start"
 ARG INIT_CMD
-ARG VERSION=v1.1.0
+ARG VERSION=v3.0.2
 ARG REPOSITORY=https://github.com/tharsis/evmos
 ARG NAMESPACE
 
@@ -110,7 +109,9 @@ EXPOSE 26656 \
        26657 \
        1317  \
        9090  \
-       8080
+       8080  \
+       8545 \
+       8546
 
 # Install AWS
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
