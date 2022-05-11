@@ -20,13 +20,14 @@ version: "2.0"
 
 services:
   node:
-    image: chandrastation/evmosakt:v1.4.0-testnet
+    image: chandrastation/akt-evmos:v3.0.2
     env:
       - MONIKER=akt_evmos
-      - CHAIN_ID=evmos_9000-3
+      - CHAIN_ID=evmos_9001-2
       - VALIDATE_GENESIS=0
-      - P2P_PERSISTENT_PEERS=c00ec5f0c8d664e5eccdb312a7394f16b325e725@bd-evmos-testnet-sentry-01.bdnodes.net:26656,68c0966f3f6ee42369710d57de2e015ec87b36ca@bd-evmos-testnet-sentry-02.bdnodes.net:26656,8d1a0934d38f09e587cca498c9f552abf3258806@bd-evmos-testnet-sentry-03.bdnodes.net:26656,3a6b22e1569d9f85e9e97d1d204a1c457d860926@bd-evmos-testnet-seed-node-01.bdnodes.net:26656,c10c7be0e6b4a1721cffa6a10a24a8c8ec94bb82@34.133.158.107:26656,36cd75ae8a87e24f5c16cda8a2de8c0959678e9f@35.232.93.147:26656,b7cd1af9540271e851890c0ac009e0039558addf@34.77.4.52:26656,f53a5d262d7f502894e8d19d179afe156eeb812b@34.140.141.181:26656,c00ec5f0c8d664e5eccdb312a7394f16b325e725@34.85.200.127:26656,8d1a0934d38f09e587cca498c9f552abf3258806@34.76.223.126:26656,68c0966f3f6ee42369710d57de2e015ec87b36ca@35.203.156.214:26656
-      - GENESIS_URL=https://github.com/tharsis/testnets/raw/main/evmos_9000-3/genesis.zip
+      - P2P_PERSISTENT_PEERS=e3e11fca4ecf4035a751f3fea90e3a821e274487@bd-evmos-mainnet-seed-node-01.bdnodes.net:26656,fc86e7e75c5d2e4699535e1b1bec98ae55b16826@bd-evmos-mainnet-seed-node-02.bdnodes.net:26656,40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72@seed.evmos.jerrychong.com:26656,eaa3dae2275faf9f599690c336d0e41e59fa6ae0@65.108.6.69:26656
+      - GENESIS_URL=https://github.com/tharsis/mainnet/raw/main/evmos_9001-2/genesis.json.zip
+      - SNAPSHOT_URL=https://snapshots2.polkachu.com/snapshots/evmos/evmos_225990.tar.lz4
     expose:
       - port: 26657
         as: 80
@@ -41,11 +42,11 @@ profiles:
     node:
       resources:
         cpu:
-          units: 2
+          units: 8
         memory:
-          size: 8Gi
+          size: 32Gi
         storage:
-          size: 100Gi
+          size: 200Gi
   placement:
     dcloud:
       attributes:
