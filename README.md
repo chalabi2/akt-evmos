@@ -1,14 +1,14 @@
 # EVMOS on AKT
 A simple guide on deploying an evmos node on Akash. Forked from Ovrclk/Cosmos-Omnibus 
 
-### Cosmos-Omnibus
+### [Cosmos-Omnibus](https://github.com/ovrclk/cosmos-omnibus)
 
-Omnibus allows us to setup simple environment variables in the deploy file in order to create Validator Infrastructure, RPC Nodes, or any other configuration for a Cosmos Node
+Omnibus allows us to setup simple environment variables in an Akash deployment file in order to create Validator Infrastructure, RPC Nodes, or any other configuration for a Cosmos Node
 
 ## Guide 
 
 * Step 1) Download [Akashlytics](https://akashlytics.com/deploy)
-* Step 2) copy and paste the deploy file below for a simple RPC node configuration
+* Step 2) Copy and paste the deploy file below in the "Create Deployment" section of Akashlytics for a simple RPC node configuration
 
 ### Deploy File
 
@@ -66,7 +66,8 @@ deployment:
       profile: node
       count: 1
 ```
-* Step 3) click through the deployment transactions
+* Step 3) Click through the deployment transactions, selecting a bid and submitting the manifest
+* Step 4) Wait for the image to propogate and the node to sync
 
 ### Interaction
-Connecting to the RPC or utilizing the Akash deployed node as a peer is as easy as adding the node id (printed in the logs) and Akash URI to a typical node config.toml file. Further configuration can be found at the [Omni-Bus Repo](https://github.com/ovrclk/cosmos-omnibus)
+Connecting to the RPC or utilizing the Akash deployed node as a peer is as easy as adding the node id (printed in the logs or by clicking the URI and interacting with the RPC to visit the /status page and getting the node-id from there) and Akash URI to a typical node config.toml file under persistent peers. Further configuration can be found at the [Omni-Bus Repo](https://github.com/ovrclk/cosmos-omnibus)
