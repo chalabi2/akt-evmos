@@ -31,8 +31,6 @@ services:
     expose:
       - port: 26657
         as: 80
-        accept:
-            - evmos.rpc.chandrastation.com
         to:
           - global: true
       - port: 26656
