@@ -21,7 +21,7 @@ RUN apt-get update && \
 #
 FROM build_base AS build_source
 
-ARG VERSION=v3.0.2
+ARG VERSION=v4.0.1
 ARG REPOSITORY=https://github.com/tharsis/evmos
 ARG BUILD_CMD="make install"
 
@@ -89,7 +89,7 @@ ARG PROJECT_DIR=.evmosd
 ARG CONFIG_DIR=config
 ARG START_CMD="$PROJECT_BIN start"
 ARG INIT_CMD
-ARG VERSION=v3.0.2
+ARG VERSION=v4.0.1
 ARG REPOSITORY=https://github.com/tharsis/evmos
 ARG NAMESPACE
 
